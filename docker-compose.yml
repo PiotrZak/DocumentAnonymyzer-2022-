@@ -1,0 +1,30 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: ui
+    build: ./ui
+    volumes:
+      - './:/ui'
+      - '/ui/node_modules'
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    command: npm run start
+    networks:
+      - hack4law-network
+
+  api:
+    container_name: engine
+    build: ./Engine
+    ports:
+      - "5000:5000"
+    restart: on-failure
+    networks:
+      - hack4law-network
+
+networks:
+  hack4law-network:
+    driver: bridge

@@ -1,0 +1,11 @@
+# DO NOT include azure-functions-worker in this file
+# The Python Worker is managed by Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+
+Flask==1.0.2
+azure-functions
+flask_cors
+spacy
+https://github.com/explosion/spacy-models/releases/download/pl_core_news_sm-3.1.0/pl_core_news_sm-3.1.0.tar.gz
+PyPDF2
+pdfminer
